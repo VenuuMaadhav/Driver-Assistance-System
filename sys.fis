@@ -1,0 +1,55 @@
+[System]
+Name='sys'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=7
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Hue'
+Range=[0 250]
+NumMFs=7
+MF1='Red1':'trimf',[-25 0 25]
+MF2='Red2':'trimf',[235 250 250]
+MF3='Yellow':'trimf',[25 35 50]
+MF4='Green':'trimf',[110 125 140]
+MF5='Blue':'trapmf',[120 140 180 190]
+MF6='Noise1':'trimf',[50 80 110]
+MF7='Noise2':'trapmf',[190 200 220 235]
+
+[Input2]
+Name='Sat'
+Range=[0 250]
+NumMFs=5
+MF1='Red':'trapmf',[90 100 250 280]
+MF2='Red':'trapmf',[90 100 250 280]
+MF3='Yellow':'trapmf',[120 210 250 280]
+MF4='Green':'trapmf',[150 220 250 280]
+MF5='Blue':'trapmf',[150 220 250 280]
+
+[Output1]
+Name='result'
+Range=[0 250]
+NumMFs=7
+MF1='Red':'trimf',[220 235 250]
+MF2='Black':'trimf',[0 15 35]
+MF3='Yellow':'trimf',[190 210 220]
+MF4='Green':'trimf',[160 175 190]
+MF5='Blue':'trimf',[130 140 160]
+MF6='Black':'trimf',[0 15 35]
+MF7='Black':'trimf',[0 15 35]
+
+[Rules]
+1 1, 1 (1) : 1
+2 2, 2 (1) : 1
+3 3, 3 (1) : 1
+4 4, 4 (1) : 1
+5 5, 5 (1) : 1
+6 0, 6 (1) : 1
+7 0, 6 (1) : 1

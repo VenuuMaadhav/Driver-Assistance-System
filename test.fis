@@ -1,0 +1,53 @@
+[System]
+Name='test'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=7
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[-25 250]
+NumMFs=7
+MF1='red1':'trimf',[-25 0 25]
+MF2='green':'trimf',[110 125 140]
+MF3='noise2':'trapmf',[190 200 210 235]
+MF4='yellow':'trimf',[25 32 50]
+MF5='noise1':'trimf',[50 80 110]
+MF6='blue':'trapmf',[120 140 160 190]
+MF7='red2':'trimf',[235 250 265]
+
+[Input2]
+Name='input2'
+Range=[0 250]
+NumMFs=5
+MF1='red':'trapmf',[90 100 250 300]
+MF2='green':'trapmf',[150 210 250 300]
+MF3='yellow':'trapmf',[170 220 250 300]
+MF4='red1':'trapmf',[90 100 260 300]
+MF5='blue':'trapmf',[150 210 250 350]
+
+[Output1]
+Name='output1'
+Range=[0 250]
+NumMFs=5
+MF1='black':'trimf',[0 20 40]
+MF2='green':'trimf',[170 180 190]
+MF3='red':'trimf',[230 240 250]
+MF4='blue':'trimf',[125 150 170]
+MF5='yellow':'trimf',[190 210 230]
+
+[Rules]
+1 1, 3 (1) : 1
+7 1, 3 (1) : 1
+4 3, 5 (1) : 1
+2 2, 2 (1) : 1
+6 5, 4 (1) : 1
+5 0, 1 (1) : 1
+3 0, 1 (1) : 1
